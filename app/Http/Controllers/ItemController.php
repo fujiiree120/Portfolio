@@ -16,7 +16,7 @@ class ItemController extends Controller
         // authというミドルウェアを設定
         $this->middleware('auth');
     }
-    
+
     public function index(){
         $title = 'ECサイト';
 
@@ -27,7 +27,11 @@ class ItemController extends Controller
         ]);
     }
 
-    public function create(){
+    public function create(Request $request){
+        $type = \Auth::user()->type;
+        if($type === 0){
+            return redirect('/items');
+        }
         $title = '商品追加';
         $items = \App\Item::all();
         return view('items.create',[
