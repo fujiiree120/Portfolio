@@ -13,7 +13,7 @@ class CartController extends Controller
         // authというミドルウェアを設定
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *

@@ -22,9 +22,11 @@
                 <li class="nav-item">
                 <a class="nav-link" href="{{ url('/carts') }}">カート</a>
                 </li>
+                @if(Auth::user()->type === 1)
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/items/create') }}">管理画面</a>
+                    <a class="nav-link" href="{{ action('ItemController@create', \Auth::user()->id) }}">管理画面</a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <form action="{{ url('/logout') }}" method="post" name="form1" >
                         {{ csrf_field() }}

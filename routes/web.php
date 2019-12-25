@@ -14,7 +14,7 @@ Auth::routes();
 Route::get('/', 'ItemController@index');
 
 Route::get('/items', 'ItemController@index');
-Route::get('/items/create', 'ItemController@create');
+Route::get('/items/{item}/create', 'ItemController@create');
 Route::post('/items', 'ItemController@store');
 Route::patch('/items/{item}/status', 'ItemController@update_status');
 Route::patch('/items/{item}/stock', 'ItemController@update_stock');
