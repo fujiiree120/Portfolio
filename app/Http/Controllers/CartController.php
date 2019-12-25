@@ -8,11 +8,18 @@ use App\Http\Requests\ItemUpdateAmountRequest;
 use DB;
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        // authというミドルウェアを設定
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         //itemテーブルと結びつけて表示

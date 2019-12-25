@@ -11,6 +11,12 @@ use App\Http\Requests\ItemStoreRequest;
 class ItemController extends Controller
 {
     //
+    public function __construct()
+    {
+        // authというミドルウェアを設定
+        $this->middleware('auth');
+    }
+    
     public function index(){
         $title = 'ECサイト';
 
