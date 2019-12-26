@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cart;
+use App\OrderLog;
+use App\OrderDetail;
 use App\Http\Requests\ItemUpdateAmountRequest;
 use DB;
 class CartController extends Controller
@@ -138,8 +140,12 @@ class CartController extends Controller
 
     public function purchase(Request $request){
         $carts = \Auth::user()->carts;
+        
         DB::beginTransaction();
         try {
+            $order_log_id = $this->add_order_log($request->total_price);
+            $this->add_order_detail($carts, $order_log_id);
+
             foreach($carts as $cart){  
                 if($cart->item->stock < $cart->amount){
                     //バリデーションにできないか、or エラーメッセージを入れたい
@@ -158,6 +164,26 @@ class CartController extends Controller
             'carts' => $carts,
             'total_price' => $request->total_price,
         ]);
+    }
+
+    private function add_order_log($total_price){
+        $order_log = new OrderLog();
+        $order_log->user_id = \Auth::user()->id;
+        $order_log->sum = $total_price;
+        $order_log->save();
+        $order_log_id = $order_log->id;
+        return($order_log_id);
+    }
+    private function add_order_detail($carts, $order_log_id){
+        foreach($carts as $cart){
+            $order_detail = new OrderDetail();
+            $order_detail->order_log_id = $order_log_id;
+            $order_detail->name = $cart->item->name;
+            $order_detail->image = $cart->item->image;
+            $order_detail->amount = $cart->amount;
+            $order_detail->purchase_price = $cart->item->price;
+            $order_detail->save();
+        }
     }
 
 }
