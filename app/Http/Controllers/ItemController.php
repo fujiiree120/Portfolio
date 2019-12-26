@@ -50,24 +50,24 @@ class ItemController extends Controller
         $item->image = $filename;
         $item->status = $request->status;
         $item->save();
-        return redirect('/items/create')->with('flash_message', '商品を追加しました');
+        return redirect('/items/{item}/create')->with('flash_message', '商品を追加しました');
     }
 
     public function update_status(Item $item, ItemUpdateStatusRequest $request){
         $item->status = $request->status;
         $item->save();
-        return redirect('/items/create')->with('flash_message', 'ステータスを変更しました');
+        return redirect('/items/{item}/create')->with('flash_message', 'ステータスを変更しました');
     }
 
     public function update_stock(Item $item, ItemUpdateStockRequest $request){
         $item->stock = $request->stock;
         $item->save();
-        return redirect('/items/create')->with('flash_message', '在庫数を変更しました');
+        return redirect('/items/{item}/create')->with('flash_message', '在庫数を変更しました');
     }
 
     public function destroy(Item $item){
         $item->delete();
-        return redirect('/items/create')->with('flash_message', '商品を削除しました');
+        return redirect('/items/{item}/create')->with('flash_message', '商品を削除しました');
     }
 
     private function make_imagefile($image){
