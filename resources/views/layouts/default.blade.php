@@ -28,6 +28,9 @@
                 </li>
                 @endif
                 <li class="nav-item">
+                <a class="nav-link" href="{{ action('OrderController@index', \Auth::user()->id) }}">購入履歴</a>
+                </li>
+                <li class="nav-item">
                     <form action="{{ url('/logout') }}" method="post" name="form1" >
                         {{ csrf_field() }}
                         <a href="javascript:form1.submit()" class="nav-link">ログアウト</a>
