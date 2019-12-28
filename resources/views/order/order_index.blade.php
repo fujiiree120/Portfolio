@@ -18,8 +18,8 @@
                 @forelse($order_logs as $order_log)
                     <tr>
                         <td>{{ $order_log->id }}</td>
-                        <td>{{ $order_log->sum }}</td>
-                        <td>{{ $order_log->created_at }}円</td>
+                        <td>{{ $order_log->sum }}円</td>
+                        <td>{{ $order_log->created_at }}</td>
                         <td>
                         <a href="{{ action('OrderController@show', $order_log->id) }}">詳細</a>
                         </td>
