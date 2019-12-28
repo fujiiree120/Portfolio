@@ -23,3 +23,5 @@ Route::resource('carts', 'CartController');
 Route::patch('/carts/{cart}/stock', 'CartController@update_amount');
 Route::delete('/carts/{cart}/delete', 'CartController@destroy');
 Route::post('/carts/{cart}/purchase', 'CartController@purchase');
+Route::get('/carts/{cart}/orderlogs', 'OrderController@index');
+Route::get('/carts/{cart}/orderdetail', 'OrderController@show');
