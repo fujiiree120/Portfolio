@@ -45,4 +45,5 @@ class LoginController extends Controller
         // 2. リダイレクト先を独自に設定する。
         return redirect('/login'); 
     }
+
 }

@@ -25,3 +25,4 @@ Route::delete('/carts/{cart}/delete', 'CartController@destroy');
 Route::post('/carts/{cart}/purchase', 'CartController@purchase');
 Route::get('/carts/{cart}/orderlogs', 'OrderController@index');
 Route::get('/carts/{cart}/orderdetail', 'OrderController@show');
+Route::get('/users/admin', 'UserController@change_admin');

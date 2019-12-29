@@ -38,6 +38,7 @@
 
                 </li>
             </ul>
+            <a class="nav-link " href="{{ url('/users/admin') }}">管理者権限を切り替える</a>
         </div>
     </nav>
     <p>ようこそ　{{ Auth::user()->name }} さん</p>
