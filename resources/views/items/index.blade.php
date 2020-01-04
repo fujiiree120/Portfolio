@@ -5,6 +5,14 @@
 @section('content')
     <h1>{{ $title }}</h1>
     <div class="container">
+        <form method="get" action="{{action('ItemController@order_by') }}"  class="order" name="myform" id = "my_form">
+        <select name='items_order' id='order_by'>
+            <option value="created_desc" @if($items_order == 'created_desc') selected @endif>新着順</option>
+            <option value="price_asc"  @if($items_order == 'price_asc') selected @endif>安い順</option>
+            <option value="price_desc" @if($items_order == 'price_desc') selected @endif>高い順</option>
+        </select>
+        <script type="text/javascript" src="/js/index.js"></script>
+        </form>
         <div class="card-deck">
             <div class="row">
                 @forelse($items as $item)
