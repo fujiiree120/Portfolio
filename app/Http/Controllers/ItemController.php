@@ -20,10 +20,11 @@ class ItemController extends Controller
     public function index(){
         $title = 'ECサイト';
 
-        $items = \App\Item::where('status', 1)->get();
+        $items = \App\Item::where('status', 1)->orderBy('created_at', 'desc')->get();
         return view('items.index',[
             'title' => $title,
             'items' => $items,
+            'items_order' => 'created_desc',
         ]);
     }
 
@@ -79,5 +80,22 @@ class ItemController extends Controller
         $path = $image->storeAs('photos', $filename, 'public');
 
         return $filename;
+    }
+
+    public function order_by(Request $request){
+        if($request->items_order === 'created_desc'){
+            $items = \App\Item::where('status', 1)->orderBy('created_at', 'desc')->get();
+        }else if($request->items_order === 'price_asc'){
+            $items = \App\Item::where('status', 1)->orderBy('price', 'asc')->get();
+        }else if($request->items_order === 'price_desc'){
+            $items = \App\Item::where('status', 1)->orderBy('price', 'desc')->get();
+        }else{
+            return redirect('/items');
+        }
+        return view('items.index',[
+            'title' => 'ECサイト',
+            'items' => $items,
+            'items_order' => $request->items_order,
+        ]);
     }
 }
