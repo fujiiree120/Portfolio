@@ -39,6 +39,11 @@
             </ul>
             <form method="get" action="{{action('ItemController@order_by') }}">
                 {{ csrf_field() }}
+                <!-- やることめも
+                    ItemUpdateAmountRequestのバリデーションにmax:商品在庫を追加して、
+                    CartsController updateamountのバリデーションを読み込むようにする
+                    $stock = App\Item->where->でいけるか？
+                 -->
                 <input  type="text" name="search_result" class="search-field">
                 <input type="submit" value="検索" class="btn btn-sm btn-info">
             </form>

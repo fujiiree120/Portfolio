@@ -19,7 +19,7 @@
         <div class="card-deck">
             <div class="row">
                 @forelse($items as $item)
-                    <div class="col-6 items">
+                    <div class="col-6 items-field">
                         <div class="card h-100 text-center">
                             <div class="card-header">
                                 {{ $item->name }}

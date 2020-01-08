@@ -7,14 +7,9 @@
   }
 
 
-  .items {
+  .items-field {
     margin-top: 10px;
   }
-
-  .index-form{
-    display:inline;
-  }
-
 
   .item-image{
     height: 150px;
@@ -45,6 +40,7 @@
   .detail-item-text-margin{
     margin-bottom:40px;
   }
+  
   .detail-item-price{
     color:#B12704;
     font-size:20px;
