@@ -48,12 +48,13 @@
             <tbody>
             @forelse($items as $item)
                 @if($item->status === 0)
-                    <tr class="close_item">
+                    <tr class="close-item">
                 @else
                     <tr>
+                        
                 @endif
                     @if($item->image !== '')
-                        <td><img src="{{ asset('storage/photos/' . $item->image) }}" class="item_image"></td>
+                        <td><img src="{{ asset('storage/photos/' . $item->image) }}" class="item-image"></td>
                     @endif
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->price }}</td>

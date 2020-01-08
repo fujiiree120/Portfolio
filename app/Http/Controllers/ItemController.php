@@ -98,4 +98,15 @@ class ItemController extends Controller
             'items_order' => $request->items_order,
         ]);
     }
+
+    public function show_detail(Request $request){
+        return view('items.show_detail',[
+            'title' => '商品詳細',
+            'item_id' => $request->item_id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'image' => $request->image,
+
+        ]);
+    }
 }

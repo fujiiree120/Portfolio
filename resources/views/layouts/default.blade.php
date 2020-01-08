@@ -15,12 +15,12 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <a class="navbar-brand" href="{{ url('/items') }}">ECサイト</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#headerNav" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="headerNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                <a class="nav-link" href="{{ url('/carts') }}">カート</a>
+                    <a class="nav-link" href="{{ url('/carts') }}">カート</a>
                 </li>
                 @if(Auth::user()->type === 1)
                 <li class="nav-item">
@@ -28,16 +28,20 @@
                 </li>
                 @endif
                 <li class="nav-item">
-                <a class="nav-link" href="{{ action('OrderController@index', \Auth::user()->id) }}">購入履歴</a>
+                    <a class="nav-link" href="{{ action('OrderController@index', \Auth::user()->id) }}">購入履歴</a>
                 </li>
                 <li class="nav-item">
                     <form action="{{ url('/logout') }}" method="post" name="form1" >
                         {{ csrf_field() }}
                         <a href="javascript:form1.submit()" class="nav-link">ログアウト</a>
                     </form>
-
                 </li>
             </ul>
+            <form method="get" action="{{action('ItemController@order_by') }}">
+                {{ csrf_field() }}
+                <input  type="text" name="search_result" class="search-field">
+                <input type="submit" value="検索" class="btn btn-sm btn-info">
+            </form>
             <a class="nav-link " href="{{ url('/users/admin') }}">管理者権限を切り替える</a>
         </div>
     </nav>

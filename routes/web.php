@@ -15,6 +15,7 @@ Route::get('/', 'ItemController@index');
 
 Route::get('/items', 'ItemController@index');
 Route::get('/items/orderby', 'ItemController@order_by');
+Route::get('/items/detail', 'ItemController@show_detail');
 Route::get('/items/{item}/create', 'ItemController@create');
 Route::post('/items', 'ItemController@store');
 Route::patch('/items/{item}/status', 'ItemController@update_status');

@@ -28,9 +28,7 @@ class ItemUpdateAmountRequest extends FormRequest
             'amount' =>[
                 'required',
                 'integer',
-                "max:{$cart->item->stock}",
             ],
-
         ];
     }
 

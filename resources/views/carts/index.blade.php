@@ -19,7 +19,7 @@
             <tbody>
                 @forelse($carts as $cart)
                     <tr>
-                        <td><img src="{{ asset('storage/photos/' . $cart->item->image) }}" class="item_image"></td>
+                        <td><img src="{{ asset('storage/photos/' . $cart->item->image) }}" class="item-image"></td>
                         <td>{{ $cart->item->name }}</td>
                         <td>{{ $cart->item->price }}円</td>
                         <td>
@@ -27,8 +27,7 @@
                                 {{ csrf_field() }}
                                 {{ method_field('patch') }}
                                     <div class="form-group">
-                                        <input  type="text" name="amount" value="{{ $cart->amount }}">
-                                        個
+                                        数量：<input  type="text" name="amount" value="{{ $cart->amount }}">
                                         <input type="submit" value="変更" class="btn btn-secondary">
                                     </div>
                             </form>

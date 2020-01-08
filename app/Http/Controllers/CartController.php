@@ -54,7 +54,7 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ItemUpdateAmountRequest $request)
     {
         //
         $cart = \Auth::user()->carts->where('item_id', $request->item_id)->first();
@@ -62,10 +62,10 @@ class CartController extends Controller
             $cart = new Cart();
             $cart->user_id = \Auth::user()->id;
             $cart->item_id = $request->item_id;
-            $cart->amount = 1;
+            $cart->amount = $request->amount;
         }else{
             //amountを更新する処理
-           $cart->amount ++;
+           $cart->amount += $request->amount;
         }
         $cart->save();
         return redirect('/items')->with('flash_message', '商品をカートに入れました');
@@ -174,6 +174,7 @@ class CartController extends Controller
         $order_log_id = $order_log->id;
         return($order_log_id);
     }
+
     private function add_order_detail($carts, $order_log_id){
         foreach($carts as $cart){
             $order_detail = new OrderDetail();
