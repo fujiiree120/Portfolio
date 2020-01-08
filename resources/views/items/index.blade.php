@@ -42,9 +42,6 @@
                                         <form action="{{ action('ItemController@show_detail') }}"  method="get">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
-                                            <input type="hidden" name="name" value="{{ $item->name }}">
-                                            <input type="hidden" name="price" value="{{ $item->price }}">
-                                            <input type="hidden" name="image" value="{{ $item->image }}">
                                             <input type="submit" value="詳細画面" class="btn btn-secondary  item-detail-btn">
                                         </form>
                                     @endif

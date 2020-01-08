@@ -100,13 +100,10 @@ class ItemController extends Controller
     }
 
     public function show_detail(Request $request){
+        $item = \App\Item::where('id', $request->item_id)->first();
         return view('items.show_detail',[
             'title' => '商品詳細',
-            'item_id' => $request->item_id,
-            'name' => $request->name,
-            'price' => $request->price,
-            'image' => $request->image,
-
+            'item' => $item,
         ]);
     }
 }
