@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     //
+    public function __construct()
+    {
+        // authというミドルウェアを設定
+        $this->middleware('auth');
+    }
+
     public function index(){
         $title = '購入履歴';
         $order_logs = \Auth::user()->order_logs;

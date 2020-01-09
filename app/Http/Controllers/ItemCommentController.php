@@ -8,6 +8,14 @@ use App\ItemComment;
 use App\Http\Requests\UpdateItemCommentRequest;
 class ItemCommentController extends Controller
 {
+
+    public function __construct()
+    {
+        // authというミドルウェアを設定
+        $this->middleware('auth');
+    }
+
+    
     //$item_commentにItemCommentを格納し、item_comment.blade.phpでコメント画面に移行
     public function index(Request $request, $id){
         $title = '商品コメント';
