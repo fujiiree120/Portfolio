@@ -44,7 +44,7 @@
                     CartsController updateamountのバリデーションを読み込むようにする
                     $stock = App\Item->where->でいけるか？
                  -->
-                <input  type="text" name="search_result" class="search-field">
+                <input  type="text" name="search_result" class="text-field">
                 <input type="submit" value="検索" class="btn btn-sm btn-info">
             </form>
             <a class="nav-link " href="{{ url('/users/admin') }}">管理者権限を切り替える</a>

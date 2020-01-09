@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+use App\ItemComment;
+
 use App\Http\Requests\ItemUpdateStatusRequest;
 use App\Http\Requests\ItemUpdateStockRequest;
 use App\Http\Requests\ItemStoreRequest;
@@ -18,9 +20,9 @@ class ItemController extends Controller
     }
 
     public function index(){
+        $get_open_items = $this->get_open_items();
         $title = 'ECサイト';
-
-        $items = \App\Item::where('status', 1)->orderBy('created_at', 'desc')->get();
+        $items = $get_open_items->orderBy('created_at', 'desc')->get();
         return view('items.index',[
             'title' => $title,
             'items' => $items,
@@ -43,7 +45,7 @@ class ItemController extends Controller
 
     public function store(ItemStoreRequest $request){
         $filename = $this->make_imagefile($request->file('image'));
-
+        //Itemに商品を追加する
         $item = new Item();
         $item->name = $request->name;
         $item->price = $request->price;
@@ -51,6 +53,13 @@ class ItemController extends Controller
         $item->image = $filename;
         $item->status = $request->status;
         $item->save();
+
+        //ItemComentにコメントを追加する
+        $item_comment = new ItemComment();
+        $item_comment->item_id = $item->id;
+        $item_comment->item_comments = $request->item_comment;
+        $item_comment->save();
+
         return redirect('/items/{item}/create')->with('flash_message', '商品を追加しました');
     }
 
@@ -71,6 +80,32 @@ class ItemController extends Controller
         return redirect('/items/{item}/create')->with('flash_message', '商品を削除しました');
     }
 
+    public function order_by(Request $request){
+        $get_open_items = $this->get_open_items();
+        if($request->items_order === 'created_desc'){
+            $items = $get_open_items->orderBy('created_at', 'desc')->get();
+        }else if($request->items_order === 'price_asc'){
+            $items = $get_open_items->orderBy('price', 'asc')->get();
+        }else if($request->items_order === 'price_desc'){
+            $items = $get_open_items->orderBy('price', 'desc')->get();
+        }else{
+            return redirect('/items');
+        }
+        return view('items.index',[
+            'title' => 'ECサイト',
+            'items' => $items,
+            'items_order' => $request->items_order,
+        ]);
+    }
+
+    public function show_detail($id){
+        $item = \App\Item::where('id', $id)->first();
+        return view('items.show_detail',[
+            'title' => '商品詳細',
+            'item' => $item,
+        ]);
+    }
+
     private function make_imagefile($image){
         if(isset($image) === false){
             return '';
@@ -82,28 +117,10 @@ class ItemController extends Controller
         return $filename;
     }
 
-    public function order_by(Request $request){
-        if($request->items_order === 'created_desc'){
-            $items = \App\Item::where('status', 1)->orderBy('created_at', 'desc')->get();
-        }else if($request->items_order === 'price_asc'){
-            $items = \App\Item::where('status', 1)->orderBy('price', 'asc')->get();
-        }else if($request->items_order === 'price_desc'){
-            $items = \App\Item::where('status', 1)->orderBy('price', 'desc')->get();
-        }else{
-            return redirect('/items');
-        }
-        return view('items.index',[
-            'title' => 'ECサイト',
-            'items' => $items,
-            'items_order' => $request->items_order,
-        ]);
+    private function get_open_items(){
+        //公開されてる商品を$get_open_itemに格納し返り値とする
+        $get_open_items = \App\Item::where('status', 1);
+        return $get_open_items;
     }
 
-    public function show_detail(Request $request){
-        $item = \App\Item::where('id', $request->item_id)->first();
-        return view('items.show_detail',[
-            'title' => '商品詳細',
-            'item' => $item,
-        ]);
-    }
 }

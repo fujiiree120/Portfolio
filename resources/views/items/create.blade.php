@@ -12,6 +12,10 @@
                 <input type="text" name="name">
             </p>
             <p>
+                <label>商品コメント</label>
+                <input type="text" name="item_comment">
+            </p>
+            <p>
                 <label>価格</label>
                 <input type="text" name="price">
             </p>
@@ -39,6 +43,7 @@
                 <tr>
                     <th>商品画像</th>
                     <th>商品名</th>
+                    <th>商品コメント</th>
                     <th>価格</th>
                     <th>在庫数</th>
                     <th>操作</th>
@@ -57,6 +62,15 @@
                         <td><img src="{{ asset('storage/photos/' . $item->image) }}" class="item-image"></td>
                     @endif
                     <td>{{ $item->name }}</td>
+                    <td>
+                        <form method="get" action="{{  action('ItemCommentController@index', $item->id) }}">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <input type="hidden" name="name" value="{{ $item->name }}">
+                                <input type="submit" value="コメントを編集する" class="btn btn-secondary">
+                            </div>
+                        </form>
+                    </td>
                     <td>{{ $item->price }}</td>
                     <td>
                         <form method="post" action="{{ action('ItemController@update_stock', $item->id) }}">
@@ -95,7 +109,7 @@
                     </td>
                 </tr>
             @empty
-                <p>メッセージはありません。</p>
+                <p>商品はありません。</p>
             @endforelse
             </tbody>
 

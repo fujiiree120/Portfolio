@@ -39,7 +39,7 @@
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
                                             <input type="submit" value="カートに追加" class="btn btn-primary">
                                         </form>
-                                        <form action="{{ action('ItemController@show_detail') }}"  method="get">
+                                        <form action="{{ action('ItemController@show_detail', $item->id) }}"  method="get">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
                                             <input type="submit" value="詳細画面" class="btn btn-secondary  item-detail-btn">
@@ -50,7 +50,7 @@
                         </div>
                      </div>
                 @empty
-                    <p>メッセージはありません。</p>
+                    <p>商品はありません。</p>
                 @endforelse
             </div>
         </div>

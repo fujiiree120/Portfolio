@@ -56,7 +56,7 @@ class CartController extends Controller
      */
     public function store(ItemUpdateAmountRequest $request)
     {
-        //
+        //$cartにユーザーの商品情報を格納している
         $cart = \Auth::user()->carts->where('item_id', $request->item_id)->first();
         if(empty($cart)){
             $cart = new Cart();
@@ -70,48 +70,6 @@ class CartController extends Controller
         $cart->save();
         return redirect('/items')->with('flash_message', '商品をカートに入れました');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     public function update_amount(Cart $cart, Request $request){
         $request->validate([
