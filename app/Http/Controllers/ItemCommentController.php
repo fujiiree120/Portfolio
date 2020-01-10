@@ -20,7 +20,7 @@ class ItemCommentController extends Controller
     public function index(Request $request, $id)
     {
         $title = '商品コメント';
-        $item_comments = \App\ItemComment::where('item_id', $id)->get();
+        $item_comments = ItemComment::where('item_id', $id)->get();
         return view('items.item_comment',[
             'title' => $request->name,
             'item_comments' => $item_comments,

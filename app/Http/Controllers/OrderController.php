@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\OrderDetail;
+use App\OrderLog;
 
 class OrderController extends Controller
 {
@@ -28,8 +30,8 @@ class OrderController extends Controller
     {
 
         $title = '購入明細';
-        $order_details = \App\OrderDetail::where('order_log_id', $id)->get();
-        $order_price = \App\OrderLog::where('id', $id)->first();
+        $order_details = OrderDetail::where('order_log_id', $id)->get();
+        $order_price = OrderLog::where('id', $id)->first();
         return view('order.order_show',[
             'title' => $title,
             'order_details' => $order_details,

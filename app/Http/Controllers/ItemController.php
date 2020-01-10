@@ -57,7 +57,7 @@ class ItemController extends Controller
             return redirect('/items');
         }
         $title = '商品追加';
-        $items = \App\Item::all();
+        $items = Item::all();
         return view('items.create',[
             'title' => $title,
             'items' => $items,
@@ -107,8 +107,8 @@ class ItemController extends Controller
 
     public function show_detail($id)
     {
-        $item = \App\Item::where('id', $id)->first();
-        $item_comments = \App\ItemComment::where('item_id', $id)->get();
+        $item = Item::where('id', $id)->first();
+        $item_comments = ItemComment::where('item_id', $id)->get();
         return view('items.show_detail',[
             'title' => '商品詳細',
             'item' => $item,
@@ -123,8 +123,10 @@ class ItemController extends Controller
             return redirect('/items');
         }
         $get_open_items = $this->get_open_items();
-        $items = $get_open_items->where('name', 'like', '%'.$keyword.'%')->get();
-        //商品コメントもキーワード対象に入れる
+
+        $items = $get_open_items->whereHas('item_comments', function ($query) use ($keyword){
+            $query->where('item_comments',  'like', '%'.$keyword.'%');
+        })->orWhere('name', 'like', '%'.$keyword.'%')->get();
         return view('items.index',[
             'title' => 'ECサイト',
             'items' => $items,
@@ -147,7 +149,7 @@ class ItemController extends Controller
     private function get_open_items()
     {
         //公開されてる商品を$get_open_itemに格納し返り値とする
-        $get_open_items = \App\Item::where('status', 1);
+        $get_open_items = Item::where('status', 1);
         return $get_open_items;
     }
 
