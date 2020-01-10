@@ -28,6 +28,7 @@ class ItemUpdateAmountRequest extends FormRequest
             'amount' =>[
                 'required',
                 'integer',
+                "min:1",
             ],
         ];
     }
@@ -36,7 +37,8 @@ class ItemUpdateAmountRequest extends FormRequest
         return [
           'amount.required' => '数量を入力してください',
           'amount.integer' => '数字を入力してください',
-          'amount.' => '数字を入力してください'
+          'amount.min' => '一つ以上選択してください',
         ];
       }
+
 }

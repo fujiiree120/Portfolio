@@ -13,7 +13,8 @@ class OrderController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
+    public function index()
+    {
         $title = '購入履歴';
         $order_logs = \Auth::user()->order_logs;
         return view('order.order_index',[
@@ -23,7 +24,8 @@ class OrderController extends Controller
         
     }
     
-    public function show($id){
+    public function show($id)
+    {
 
         $title = '購入明細';
         $order_details = \App\OrderDetail::where('order_log_id', $id)->get();

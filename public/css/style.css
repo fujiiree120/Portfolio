@@ -7,16 +7,12 @@
   }
 
 
-  .items-field {
+  .item {
     margin-top: 10px;
   }
 
   .item-image{
     height: 150px;
-  }
-
-  .index-image{
-    height:300px;
   }
 
   .item-detail-btn{

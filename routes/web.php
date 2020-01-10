@@ -14,6 +14,7 @@ Auth::routes();
 //ItemContorollerを操作するRoute
 Route::get('/', 'ItemController@index');
 Route::get('/items', 'ItemController@index');
+Route::get('/items/search', 'ItemController@search_items');
 Route::get('/items/orderby', 'ItemController@order_by');
 Route::get('/items/{item}/detail', 'ItemController@show_detail');
 Route::get('/items/{item}/create', 'ItemController@create');
@@ -36,5 +37,3 @@ Route::post('/carts/{cart}/purchase', 'CartController@purchase');
 
 Route::get('/carts/{cart}/orderlogs', 'OrderController@index');
 Route::get('/carts/{cart}/orderdetail', 'OrderController@show');
-
-Route::get('/users/admin', 'UserController@change_admin');
