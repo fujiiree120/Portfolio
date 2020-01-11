@@ -32,14 +32,37 @@
     width:60%;
     margin-left:60px;
   }
-
-  .detail-item-text-margin{
-    margin-bottom:40px;
-  }
   
   .detail-item-price{
     color:#B12704;
     font-size:20px;
+    margin: 10px 0 40px;
+  }
+
+  .item-review-field{
+    margin-top: 100px;
   }
   
+  .item-review{
+    margin-bottom: 60px;
+  }
+
+  .star-rating {
+    position: relative;
+    width: 5em;
+    height: 1em;
+    font-size: 25px;
+  
+  }
+
+  .star-rating-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: #ffcc33;
+  }
+  .star-rating-back {
+    color: #ccc;
+  }
   
