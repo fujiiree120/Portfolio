@@ -36,18 +36,14 @@
                         <a href="javascript:form1.submit()" class="nav-link">ログアウト</a>
                     </form>
                 </li>
+                <li class="nav-item">
+                    <form method="get" action="{{action('ItemController@search_items') }}" class="text-center">
+                        {{ csrf_field() }}
+                        <input  type="text" name="keyword" class="text-field">
+                        <input type="submit" value="検索" class="btn btn-sm btn-info">
+                     </form>
+                </li>
             </ul>
-            <form method="get" action="{{action('ItemController@order_by') }}">
-                {{ csrf_field() }}
-                <!-- やることめも
-                    ItemUpdateAmountRequestのバリデーションにmax:商品在庫を追加して、
-                    CartsController updateamountのバリデーションを読み込むようにする
-                    $stock = App\Item->where->でいけるか？
-                 -->
-                <input  type="text" name="search_result" class="text-field">
-                <input type="submit" value="検索" class="btn btn-sm btn-info">
-            </form>
-            <a class="nav-link " href="{{ url('/users/admin') }}">管理者権限を切り替える</a>
         </div>
     </nav>
     <p>ようこそ　{{ Auth::user()->name }} さん</p>

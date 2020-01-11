@@ -10,10 +10,10 @@ class Item extends Model
     protected $fillable = ['name', 'price', 'amount'];
 
     public function carts(){
-        $this->hasMany('App\Cart');
+        return $this->hasMany('App\Cart');
     }
 
     public function item_comments(){
-        $this->hasMany('App\ItemComment');
+        return $this->hasMany('App\ItemComment');
     }
 }

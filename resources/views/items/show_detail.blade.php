@@ -11,9 +11,10 @@
                 <h1 class="border-bottom">{{ $item->name }}</h1>
                 <p class="detail-item-price detail-item-text-margin">価格：{{ $item->price }}円</p>
                 <ul class="detail-item-text-margin">
-                    <li>あああああああああああああああああああｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄｄあああああああああああ</li>
-                    <li>いいいいいいいいいいいいいいいいいいいいいいいいいいいいいい</li>
-                    <li>いいいいいいいいいいいいいいいいいいいいいいいいいいいいいい</li>
+                @forelse($item_comments as $item_comment)
+                    <li>{{ $item_comment->item_comments }}</li>
+                @empty
+                @endforelse
                 </ul>
             </div>    
         </div>

@@ -16,12 +16,6 @@ class CartController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    
     public function index()
     {
         //itemテーブルと結びつけて表示
@@ -38,22 +32,6 @@ class CartController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ItemUpdateAmountRequest $request)
     {
         //$cartにユーザーの商品情報を格納している
@@ -71,32 +49,25 @@ class CartController extends Controller
         return redirect('/items')->with('flash_message', '商品をカートに入れました');
     }
 
-    public function update_amount(Cart $cart, Request $request){
-        $request->validate([
-            'amount' =>[
-                'required',
-                'integer',
-                "max:{$cart->item->stock}",
-                "min:1",
-            ]
-            ],
-            [
-                'amount.required' =>'数量は必須です',
-                'amount.integer' =>'数字を入力してください',
-                'amount.max' => '在庫数を超えています',
-                'amount.min' => '1つ以上選択してください',
-            ]);
+    public function update_amount(Cart $cart, ItemUpdateAmountRequest $request)
+    {
+        //購入量>在庫数の場合エラーとする
+        if($this->is_valid_item_stock($cart, $request->amount) === false){
+            return redirect('/carts')->with('flash_error', '在庫数が足りません');
+        }
         $cart->amount = $request->amount;
         $cart->save();
         return redirect('/carts')->with('flash_message', '数量を変更しました');
     }
 
-    public function destroy(Cart $cart){
+    public function destroy(Cart $cart)
+    {
         $cart->delete();
         return redirect('/carts')->with('flash_message', 'カートから削除しました');
     }
 
-    public function purchase(Request $request){
+    public function purchase(Request $request)
+    {
         $carts = \Auth::user()->carts;
         
         DB::beginTransaction();
@@ -105,10 +76,9 @@ class CartController extends Controller
             $this->add_order_detail($carts, $order_log_id);
 
             foreach($carts as $cart){  
-                if($cart->item->stock < $cart->amount){
-                    //バリデーションにできないか、or エラーメッセージを入れたい
+                if($this->is_valid_item_stock($cart, $cart->amount) === false){
                     return redirect('/carts')->with('flash_error', '在庫数が足りません');
-                }  
+                }
                 $cart->item->stock -= $cart->amount;
                 $cart->item->save();
                 $cart->delete();
@@ -124,7 +94,9 @@ class CartController extends Controller
         ]);
     }
 
-    private function add_order_log($total_price){
+    //購入履歴モデルを作成
+    private function add_order_log($total_price)
+    {
         $order_log = new OrderLog();
         $order_log->user_id = \Auth::user()->id;
         $order_log->sum = $total_price;
@@ -133,7 +105,9 @@ class CartController extends Controller
         return($order_log_id);
     }
 
-    private function add_order_detail($carts, $order_log_id){
+    //購入明細モデルを作成
+    private function add_order_detail($carts, $order_log_id)
+    {
         foreach($carts as $cart){
             $order_detail = new OrderDetail();
             $order_detail->order_log_id = $order_log_id;
@@ -143,6 +117,12 @@ class CartController extends Controller
             $order_detail->purchase_price = $cart->item->price;
             $order_detail->save();
         }
+    }
+
+    //購入量が在庫数よりも多いかチェック
+    private function is_valid_item_stock($cart, $cart_amount)
+    {
+        return $cart->item->stock >= $cart_amount;
     }
 
 }

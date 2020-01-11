@@ -6,7 +6,7 @@
     <h1>{{ $title }}</h1>
     <div class="container">
         <div>
-            <form method="get" action="{{action('ItemController@order_by') }}"  class="text-right" name="myform" id = "my_form">
+            <form method="get" action="{{action('ItemController@index') }}"  class="text-right" name="myform" id = "my_form">
                 {{ csrf_field() }}
                 <select name='items_order' id='order_by'>
                     <option value="created_desc" @if($items_order == 'created_desc') selected @endif>新着順</option>
@@ -19,15 +19,13 @@
         <div class="card-deck">
             <div class="row">
                 @forelse($items as $item)
-                    <div class="col-6 items-field">
+                    <div class="col-4 item">
                         <div class="card h-100 text-center">
                             <div class="card-header">
                                 {{ $item->name }}
                             </div>
                             <figure class="card-body">
-                                @if($item->image !== '')
-                                    <img src="{{ asset('storage/photos/' . $item->image) }}" class="index-image">
-                                @endif   
+                                <img class="card-img" src="{{ asset('storage/photos/' . $item->image) }}" >
                                 <figcaption>                        
                                     {{ $item->price }}円
                                     @if($item->stock <= 0)
@@ -37,12 +35,12 @@
                                             {{ csrf_field() }}
                                             <input type="hidden" name="amount" value="1">
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
-                                            <input type="submit" value="カートに追加" class="btn btn-primary">
+                                            <input type="submit" value="カートに追加" class="btn btn-primary btn-block">
                                         </form>
                                         <form action="{{ action('ItemController@show_detail', $item->id) }}"  method="get">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
-                                            <input type="submit" value="詳細画面" class="btn btn-secondary  item-detail-btn">
+                                            <input type="submit" value="詳細画面" class="btn btn-secondary  item-detail-btn btn-block">
                                         </form>
                                     @endif
                                 </figcaption>
