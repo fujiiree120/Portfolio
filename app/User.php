@@ -34,4 +34,8 @@ class User extends Authenticatable
     public function order_logs(){
         return $this->hasMany('App\OrderLog');
      }
+
+     public function item_reviews(){
+        return $this->hasMany('App\ItemReview');
+     }
 }

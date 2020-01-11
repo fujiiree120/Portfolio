@@ -17,6 +17,7 @@ Route::get('/items', 'ItemController@index');
 Route::get('/items/search', 'ItemController@search_items');
 Route::get('/items/orderby', 'ItemController@order_by');
 Route::get('/items/{item}/detail', 'ItemController@show_detail');
+Route::post('/items/create/review', 'ItemController@create_review');
 Route::get('/items/{item}/create', 'ItemController@create');
 Route::post('/items', 'ItemController@store');
 Route::patch('/items/{item}/status', 'ItemController@update_status');
