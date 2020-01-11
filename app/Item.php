@@ -12,4 +12,8 @@ class Item extends Model
     public function carts(){
         $this->hasMany('App\Cart');
     }
+
+    public function item_comments(){
+        $this->hasMany('App\ItemComment');
+    }
 }

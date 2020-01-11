@@ -26,6 +26,7 @@ class ItemStoreRequest extends FormRequest
         return [
             //
                 'name' => 'required',
+                'item_comment' => 'required',
                 'price' => 'required|integer|min:1',
                 'stock' => 'required|integer|min:1',
                 'image' => [
@@ -44,6 +45,7 @@ class ItemStoreRequest extends FormRequest
     public function messages(){
         return [
             'name.required' => '商品名を入力してください',
+            'item_comment.required' => '商品コメントを入力してください',
             'price.required' => '価格を入力してください',
             'price.integer' => '価格は数字を入力してください',
             'price.min' => '1円以上を入力してください',

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ItemUpdateAmountRequest extends FormRequest
+class UpdateItemCommentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,22 +21,16 @@ class ItemUpdateAmountRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules(){
         return [
             //
-            'amount' =>[
-                'required',
-                'integer',
-            ],
+                'item_comment' => 'required'
         ];
     }
 
-    public function messages() {
+    public function messages(){
         return [
-          'amount.required' => '数量を入力してください',
-          'amount.integer' => '数字を入力してください',
-          'amount.' => '数字を入力してください'
-        ];
-      }
+            'item_comment.required' => '商品コメントを入力してください'
+          ];
+    }
 }
