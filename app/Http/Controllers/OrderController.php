@@ -15,8 +15,9 @@ class OrderController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index_order_log()
     {
+        //userの購入履歴を表示
         $title = '購入履歴';
         $order_logs = \Auth::user()->order_logs;
         return view('order.order_index',[
@@ -26,9 +27,9 @@ class OrderController extends Controller
         
     }
     
-    public function show($id)
+    public function show_order_detail($id)
     {
-
+        //履歴事の詳細を表示する
         $title = '購入明細';
         $order_details = OrderDetail::where('order_log_id', $id)->get();
         $order_price = OrderLog::where('id', $id)->first();

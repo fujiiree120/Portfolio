@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-
+    <h1>{{ $title }}</h1>
     <div class="container">
         <div class="detail-flex-body">
            <img src="{{ asset('storage/photos/' . $item->image) }}" class="detail-image">
@@ -38,14 +38,14 @@
                     <div class="star-rating-front" style="width:{{ $item_review->item_score * 20}}%">★★★★★</div>
                     <div class="star-rating-back">★★★★★</div>
                 </div>
-                <p  class="border-bottom">{{ $item_review->user->name }}</p>
+                <p  class="border-bottom mt-2">{{ $item_review->user->name }}</p>
                 <p class="font-weight-bold">{{ $item_review->item_review_title }}</p>
                 <p>{{ $item_review->item_review_comment }}</p>
             </div>
         @empty
-        <p>レビューはまだありません</p>
+            <p>レビューはまだありません</p>
         @endforelse
-        <form class=" item-review-field"  method="post" action="{{action('ItemController@create_review') }}">
+        <form class=" item-review-field"  method="post" action="{{action('ItemDetailController@create_review') }}">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="review_title">タイトル</label>
@@ -58,7 +58,7 @@
             <div class="form-group">
                 <label for="review_score">点数</label>
                 <select name='score'>
-                     <option value="5">5</option>
+                    <option value="5">5</option>
                     <option value="4">4</option>
                     <option value="3">3</option>
                     <option value="2">2</option>

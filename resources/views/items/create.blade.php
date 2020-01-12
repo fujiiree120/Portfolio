@@ -63,7 +63,7 @@
                     @endif
                     <td>{{ $item->name }}</td>
                     <td>
-                        <form method="get" action="{{  action('ItemCommentController@index', $item->id) }}">
+                        <form method="get" action="{{  action('ItemCommentController@comment_index', $item->id) }}">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <input type="hidden" name="name" value="{{ $item->name }}">
@@ -99,7 +99,7 @@
                         </form>
                     </td>
                     <td>
-                        <form method="post" action="{{ action('ItemController@destroy', $item->id) }}">
+                        <form method="post" action="{{ action('ItemController@destroy_item', $item->id) }}">
                             {{ csrf_field() }}
                             {{ method_field('delete') }}
                             <div class="form-group">

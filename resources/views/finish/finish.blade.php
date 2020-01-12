@@ -31,7 +31,7 @@
                     <p>商品がありません。</p>
                 @endforelse
             </tbody>
-         </table>
-         <p class="text-right">合計金額:{{ $total_price }}円</p>
+        </table>
+        <p class="text-right">合計金額:{{ $total_price }}円</p>
     </div>
 @endsection

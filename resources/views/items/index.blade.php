@@ -4,6 +4,7 @@
 
 @section('content')
     <h1>{{ $title }}</h1>
+    <p>本ページはプロテイン専門ECサイトです</p>
     <div class="container">
         <div>
             <form method="get" action="{{action('ItemController@index') }}"  class="text-right" name="myform" id = "my_form">
@@ -37,7 +38,7 @@
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
                                             <input type="submit" value="カートに追加" class="btn btn-primary btn-block">
                                         </form>
-                                        <form action="{{ action('ItemController@show_detail', $item->id) }}"  method="get">
+                                        <form action="{{ action('ItemDetailController@show_detail', $item->id) }}"  method="get">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
                                             <input type="submit" value="詳細画面" class="btn btn-secondary  item-detail-btn btn-block">

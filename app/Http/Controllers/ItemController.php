@@ -23,8 +23,9 @@ class ItemController extends Controller
 
     public function index(Request $request)
     {
+        //ステータスがopenの商品を$itemsに格納し、item.index.phpで表示
         $get_open_items = $this->get_open_items();
-        $title = 'ECサイト';
+        $title = '商品一覧';
         $items_order = $this->order_by($request->items_order);
         $items = $get_open_items->orderBy($items_order[0], $items_order[1])->get();
         return view('items.index',[
@@ -36,6 +37,7 @@ class ItemController extends Controller
 
     public function order_by($request)
     {
+        //プルダウンで選択されたvalueによって商品モデルをorder_byする
         if($request === 'price_asc'){
             $order_subject = 'price';
             $order_by = 'asc';
@@ -52,8 +54,9 @@ class ItemController extends Controller
         return $items_order = array($order_subject, $order_by, $displayed_order_text);
     }
 
-    public function create(Request $request)
+    public function show_create_index(Request $request)
     {
+        //商品管理画面を表示させるcarts.index.phpに移行する
         $type = \Auth::user()->type;
         if($type === 0){
             return redirect('/items');
@@ -66,8 +69,9 @@ class ItemController extends Controller
         ]);
     }
 
-    public function store(ItemStoreRequest $request)
+    public function store_item(ItemStoreRequest $request)
     {
+        //Itemモデルを作成する処理
         $filename = $this->make_imagefile($request->file('image'));
         //Itemに商品を追加する
         $item = new Item();
@@ -101,29 +105,15 @@ class ItemController extends Controller
         return redirect('/items/{item}/create')->with('flash_message', '在庫数を変更しました');
     }
 
-    public function destroy(Item $item)
+    public function destroy_item(Item $item)
     {
         $item->delete();
         return redirect('/items/{item}/create')->with('flash_message', '商品を削除しました');
     }
 
-    public function show_detail($id)
-    {
-        $item_reviews = $this->get_item_review($id);
-        $item_score = $this->get_item_score($item_reviews);
-        $item = Item::where('id', $id)->first();
-        $item_comments = ItemComment::where('item_id', $id)->get();
-        return view('items.show_detail',[
-            'title' => '商品詳細',
-            'item' => $item,
-            'item_comments' => $item_comments,
-            'item_reviews' => $item_reviews,
-            'item_score' => $item_score,
-        ]);
-    }
-
     public function search_items(Request $request)
     {
+        //キーワードに合致する商品を$itemsに格納し、index.phpで表示
         $keyword = $request->keyword;
         if(empty($keyword)){
             return redirect('/items');
@@ -138,41 +128,6 @@ class ItemController extends Controller
             'items' => $items,
             'items_order' => 'created_desc',
         ]);
-    }
-
-    public function create_review(ItemReviewRequest $request)
-    {
-        $item_review = new ItemReview();
-        $item_review->item_id = $request->item_id;
-        $item_review->user_id = \Auth::user()->id;
-        $item_review->item_score = $request->score;
-        $item_review->item_review_title = $request->title;
-        $item_review->item_review_comment = $request->body;
-        $item_review->save();
-
-        return redirect('/items')->with('flash_message', '商品レビューを投稿しました');
-    }
-
-    private function get_item_review($id)
-    {
-        $item_review = ItemReview::where('item_id', $id)->get();
-        return $item_review;
-    }
-
-    private function get_item_score($item_reviews)
-    {
-        $item_score = 0;
-        $item_score_division = 0;
-        foreach($item_reviews as $item_review){
-            $item_score += $item_review->item_score;
-            $item_score_division ++;
-        }
-        if($item_score <= 0){
-            $item_score = 0;
-        }else{
-            $item_score = round($item_score * 20 / $item_score_division);
-        }
-        return $item_score;
     }
 
     private function make_imagefile($image)

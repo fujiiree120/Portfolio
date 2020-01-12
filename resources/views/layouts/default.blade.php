@@ -13,7 +13,7 @@
 </head>
 <header>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url('/items') }}">ECサイト</a>
+        <a class="navbar-brand text-primary" href="{{ url('/items') }}">Build Up!</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#headerNav" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,11 +24,11 @@
                 </li>
                 @if(Auth::user()->type === 1)
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ action('ItemController@create', \Auth::user()->id) }}">管理画面</a>
+                    <a class="nav-link" href="{{ action('ItemController@show_create_index', \Auth::user()->id) }}">管理画面</a>
                 </li>
                 @endif
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ action('OrderController@index', \Auth::user()->id) }}">購入履歴</a>
+                    <a class="nav-link" href="{{ action('OrderController@index_order_log', \Auth::user()->id) }}">購入履歴</a>
                 </li>
                 <li class="nav-item">
                     <form action="{{ url('/logout') }}" method="post" name="form1" >
@@ -41,7 +41,7 @@
                         {{ csrf_field() }}
                         <input  type="text" name="keyword" class="text-field">
                         <input type="submit" value="検索" class="btn btn-sm btn-info">
-                     </form>
+                    </form>
                 </li>
             </ul>
         </div>
