@@ -34,7 +34,7 @@
                         </td>
                         <td>{{ $cart->amount * $cart->item->price }}円</td>
                         <td>
-                            <form method="post" action="{{ action('CartController@destroy', $cart->id) }}">
+                            <form method="post" action="{{ action('CartController@destroy_cart', $cart->id) }}">
                                 {{ csrf_field() }}
                                 {{ method_field('delete') }}
                                 <div class="form-group">

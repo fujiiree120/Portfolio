@@ -21,7 +21,7 @@
                         <td>{{ $order_log->sum }}円</td>
                         <td>{{ $order_log->created_at }}</td>
                         <td>
-                        <a href="{{ action('OrderController@show', $order_log->id) }}">詳細</a>
+                            <a href="{{ action('OrderController@show_order_detail', $order_log->id) }}">詳細</a>
                         </td>
                     </tr>
                 @empty

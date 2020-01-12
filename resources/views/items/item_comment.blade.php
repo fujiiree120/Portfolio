@@ -5,7 +5,7 @@
 @section('content')
     <h1>{{ $title }}</h1>
     <div>
-        <form method="post" action="{{ action('ItemCommentController@store', $item_id) }}">
+        <form method="post" action="{{ action('ItemCommentController@store_comment', $item_id) }}">
             {{ csrf_field() }}
             {{ method_field('patch') }}
             <div class="form-group">
@@ -34,7 +34,7 @@
                         </form>
                     </td>
                     <td>
-                        <form method="post" action="{{ action('ItemCommentController@destroy', $item_comment->id) }}">
+                        <form method="post" action="{{ action('ItemCommentController@destroy_comment', $item_comment->id) }}">
                             {{ csrf_field() }}
                             {{ method_field('delete') }}
                             <div class="form-group">

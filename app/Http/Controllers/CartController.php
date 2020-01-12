@@ -60,7 +60,7 @@ class CartController extends Controller
         return redirect('/carts')->with('flash_message', '数量を変更しました');
     }
 
-    public function destroy(Cart $cart)
+    public function destroy_cart(Cart $cart)
     {
         $cart->delete();
         return redirect('/carts')->with('flash_message', 'カートから削除しました');
@@ -68,6 +68,7 @@ class CartController extends Controller
 
     public function purchase(Request $request)
     {
+        //カートの商品を購入する処理と同時にOrderLogモデルの追加も行う
         $carts = \Auth::user()->carts;
         
         DB::beginTransaction();

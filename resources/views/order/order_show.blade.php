@@ -11,7 +11,6 @@
                     <th>商品名</th>
                     <th>価格</th>
                     <th>購入数</th>
-
                 </tr>
             </thead>
             <tbody>
