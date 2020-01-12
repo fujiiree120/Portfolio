@@ -132,6 +132,7 @@ class ItemController extends Controller
 
     private function make_imagefile($image)
     {
+        //商品作成で画像ファイルの拡張子をチェック、保存
         if(isset($image) === false){
             return '';
         }
