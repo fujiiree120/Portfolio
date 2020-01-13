@@ -41,3 +41,6 @@ Route::post('/carts/{cart}/purchase', 'CartController@purchase');
 //OrderContorollerを操作するRoute
 Route::get('/carts/{cart}/orderlogs', 'OrderController@index_order_log');
 Route::get('/carts/{cart}/orderdetail', 'OrderController@show_order_detail');
+
+//UserController管理者権限を変更するroute
+Route::get('/users/admin', 'UserController@change_admin');

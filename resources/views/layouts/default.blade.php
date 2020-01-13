@@ -44,6 +44,7 @@
                     </form>
                 </li>
             </ul>
+            <a class="nav-link change_admin" href="{{ url('/users/admin') }}">管理者権限を切り替える</a>
         </div>
     </nav>
     <p>ようこそ　{{ Auth::user()->name }} さん</p>
@@ -66,6 +67,9 @@
             {{ session('flash_message') }}
         </div>
     @endif
+    <script>
+    $('.change_admin').on('click', () => confirm('管理者権限を切り替えますか？'))
+  </script>
     @yield('content')
 </body>
 </html>
