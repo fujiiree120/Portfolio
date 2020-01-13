@@ -21,7 +21,8 @@ Linux基礎
 Git基礎  
 セキュリティ対策(SQLインジェクション, XSS, CSRF)  
 VPSを用いた本番環境構築・公開  
-スクール課題：ECサイト開発実践開発  課題URL: http://118.27.35.7/index.php  
+スクール課題：ECサイト開発実践開発  
+課題URL: http://118.27.35.7/index.php  
 
 # スクール以外で学んだ内容
 Laravel(5.5), Bootstrap  
