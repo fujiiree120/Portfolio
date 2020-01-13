@@ -27,21 +27,21 @@
                             </div>
                             <figure class="card-body">
                                 <img class="card-img" src="{{ asset('storage/photos/' . $item->image) }}" >
-                                <figcaption>                        
+                                <figcaption>  
                                     {{ $item->price }}円
                                     @if($item->stock <= 0)
                                         <p class="text-danger">現在売り切れです。</p>
-                                    @else
+                                    @else  
+                                        <form action="{{ action('ItemDetailController@show_detail', $item->id) }}"  method="get">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="item_id" value="{{ $item->id }}">
+                                            <input type="submit" value="商品詳細を見る" class="btn btn-info  item-detail-btn btn-block">
+                                        </form>
                                         <form action="{{ url('/carts') }}"  method="post">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="amount" value="1">
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
                                             <input type="submit" value="カートに追加" class="btn btn-primary btn-block">
-                                        </form>
-                                        <form action="{{ action('ItemDetailController@show_detail', $item->id) }}"  method="get">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="item_id" value="{{ $item->id }}">
-                                            <input type="submit" value="詳細画面" class="btn btn-secondary  item-detail-btn btn-block">
                                         </form>
                                     @endif
                                 </figcaption>
