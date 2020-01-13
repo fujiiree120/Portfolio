@@ -23,5 +23,5 @@ Git基礎
 VPSを用いた本番環境構築・公開
 
 # スクール以外で学んだ内容
-Laravel基礎  
+Laravel 
 Bootstrap  
