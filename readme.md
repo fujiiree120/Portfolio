@@ -25,4 +25,4 @@ VPSを用いた本番環境構築・公開
 課題URL: http://118.27.35.7/index.php
 
 # スクール以外で学んだ内容
-Laravel, Bootstrap  
+Laravel(5.5), Bootstrap  
