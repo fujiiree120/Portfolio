@@ -19,7 +19,7 @@
             <tbody>
                 @forelse($carts as $cart)
                     <tr>
-                        <td><img src="{{ asset('storage/photos/' . $cart->item->image) }}" class="item-image"></td>
+                        <td><img src="data:image/png;base64,{{ $cart->item->image }}"  class="item-image"></td>
                         <td>{{ $cart->item->name }}</td>
                         <td>{{ $cart->item->price }}円</td>
                         <td>

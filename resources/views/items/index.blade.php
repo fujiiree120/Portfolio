@@ -26,7 +26,7 @@
                                 {{ $item->name }}
                             </div>
                             <figure class="card-body">
-                                <img class="card-img" src="{{ asset('storage/photos/' . $item->image) }}" >
+                                <img class="card-img" src="data:image/png;base64,{{ $item->image }}" >
                                 <figcaption>  
                                     {{ $item->price }}円
                                     @if($item->stock <= 0)

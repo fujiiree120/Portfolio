@@ -72,13 +72,14 @@ class ItemController extends Controller
     public function store_item(ItemStoreRequest $request)
     {
         //Itemモデルを作成する処理
-        $filename = $this->make_imagefile($request->file('image'));
+        //$filename = $this->make_imagefile($request->file('image'));
+        $image = base64_encode(file_get_contents($request->image->getRealPath()));
         //Itemに商品を追加する
         $item = new Item();
         $item->name = $request->name;
         $item->price = $request->price;
         $item->stock = $request->stock;
-        $item->image = $filename;
+        $item->image = $image;
         $item->status = $request->status;
         $item->save();
 
@@ -130,18 +131,18 @@ class ItemController extends Controller
         ]);
     }
 
-    private function make_imagefile($image)
-    {
-        //商品作成で画像ファイルの拡張子をチェック、保存
-        if(isset($image) === false){
-            return '';
-        }
-        $ext = $image->guessExtension();
-        $filename = str_random(20) . ".{$ext}";
-        $path = $image->storeAs('photos', $filename, 'public');
+    // private function make_imagefile($image)
+    // {
+    //     //商品作成で画像ファイルの拡張子をチェック、保存
+    //     if(isset($image) === false){
+    //         return '';
+    //     }
+    //     $ext = $image->guessExtension();
+    //     $filename = str_random(20) . ".{$ext}";
+    //     $path = $image->storeAs('photos', $filename, 'public');
 
-        return $filename;
-    }
+    //     return $filename;
+    // }
 
     private function get_open_items()
     {

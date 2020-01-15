@@ -59,7 +59,7 @@
                         
                 @endif
                     @if($item->image !== '')
-                        <td><img src="{{ asset('storage/photos/' . $item->image) }}" class="item-image"></td>
+                        <td><img src="data:image/png;base64,{{ $item->image }}"  class="item-image"></td>
                     @endif
                     <td>{{ $item->name }}</td>
                     <td>

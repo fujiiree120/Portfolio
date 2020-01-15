@@ -6,7 +6,7 @@
     <h1>{{ $title }}</h1>
     <div class="container">
         <div class="detail-flex-body">
-           <img src="{{ asset('storage/photos/' . $item->image) }}" class="detail-image">
+           <img src="data:image/png;base64,{{ $item->image }}"  class="detail-image">
             <div class="detail-text">
                 <h1 class="border-bottom">{{ $item->name }}</h1>
                 <div class="star-rating">
