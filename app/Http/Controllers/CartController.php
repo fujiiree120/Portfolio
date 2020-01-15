@@ -70,7 +70,6 @@ class CartController extends Controller
     {
         //カートの商品を購入する処理と同時にOrderLogモデルの追加も行う
         $carts = \Auth::user()->carts;
-        
         DB::beginTransaction();
         try {
             $order_log_id = $this->add_order_log($request->total_price);
@@ -113,7 +112,6 @@ class CartController extends Controller
             $order_detail = new OrderDetail();
             $order_detail->order_log_id = $order_log_id;
             $order_detail->name = $cart->item->name;
-            $order_detail->image = $cart->item->image;
             $order_detail->amount = $cart->amount;
             $order_detail->purchase_price = $cart->item->price;
             $order_detail->save();
