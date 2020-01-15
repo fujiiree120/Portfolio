@@ -44,7 +44,7 @@
                     </form>
                 </li>
             </ul>
-            <a class="nav-link change_admin" href="{{ url('/users/admin') }}">管理者権限を切り替える</a>
+            <!-- <a class="nav-link change_admin" href="{{ url('/users/admin') }}">管理者権限を切り替える</a> -->
         </div>
     </nav>
     <p>ようこそ　{{ Auth::user()->name }} さん</p>
