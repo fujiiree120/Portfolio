@@ -1,11 +1,13 @@
 # 学習背景、目的
- プログラミングスクールで習った事の復習と、独学で学んだLaravel,Bootstrapの練習を目的として、  
- 個人的にlaravelを使用したECサイトを作成しました。  
-
+ プログラミングスクール学習内容の復習と、個人的に学習したLaravel,Bootstrapの練習を目的として、  
+ laravelを使用したECサイトを作成しました。  
+ 
+ サイトURL:http://myapptatsuya.herokuapp.com/
 
 # 開発背景
 ・Docker Toolboxを利用した環境構築  
 ・Laradockを利用したLaravelインストール  
+・herokuを利用してのwebサイト公開
 <br>
 
 # スクール受講内容
@@ -21,7 +23,7 @@ Git基礎
 セキュリティ対策(SQLインジェクション, XSS, CSRF)  
 VPSを用いた本番環境構築・公開  
 スクール最終課題：ECサイト開発実践開発  
-課題URL: http://118.27.35.7/index.php  
 
 # 今回学習した習内容
-Laravel(5.5), Bootstrap
+Laravel, Bootstrap  
+herokuを利用したwebサイトの公開
