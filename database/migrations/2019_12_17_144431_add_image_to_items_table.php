@@ -28,7 +28,7 @@ class AddImageToItemsTable extends Migration
     {
         Schema::table('items', function (Blueprint $table) {
             //
-            $table->dropColumn('image');
+            //$table->dropColumn('image');
         });
     }
 }
