@@ -30,6 +30,7 @@
   ・mysql5.7  
   ・Laravel5.5  
   ・VSCode  
+  ・git bash    
   ・Docker,Laradockを利用した環境開発  
 <br>
 
@@ -37,12 +38,18 @@
 　 Dockerのインストール後、git clone https://github.com/LaraDock/laradock.git　
  上記コマンドを実行し、作成されたLaradockディレクトリに移動　　
 
-docker-compose up -d workspaceでワークスペースを立ち上げる
+docker-compose up -d workspaceでワークスペースを立ち上げ動作確認
+
+docker exec -it --user=laradock laradock_workspace_1 bash  
+上記コマンドでlaradockにbashでログインする
 
 composer create-project laravel/laravel[プロジェクト名] --prefer-dist 5.5
 上記コマンドでバージョン5.5の「プロジェクト」を作成  
 
-env-exampleファイルを.envファイルとしてコピーし、MYSQLのバージョンを5.7に変更する
+laradock環境を一旦停止し、env-exampleファイルを.envファイルとしてコピーし、MYSQLのバージョンを5.7に変更する  
+
+docker-compose up -d workspace nginx mysql phpmyadmin  
+上記コマンドで開発環境を立ち上げる  
  
 # 使用技術
   ・php  
@@ -53,6 +60,7 @@ env-exampleファイルを.envファイルとしてコピーし、MYSQLのバー
   ・CSS  
   ・herokuを利用したサイトの公開  
   ・Docker  
+  ・git bash  
 
 # 工夫した点
   フォームリクエストを利用し、バリデーションの管理をわかりやすくまとめた  
