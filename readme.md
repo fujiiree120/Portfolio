@@ -43,7 +43,7 @@ docker-compose up -d workspaceでワークスペースを立ち上げ動作確�
 docker exec -it --user=laradock laradock_workspace_1 bash  
 上記コマンドでlaradockにbashでログインする
 
-composer create-project laravel/laravel[プロジェクト名] --prefer-dist 5.5
+composer create-project laravel/laravel[プロジェクト名] --prefer-dist 5.5  
 上記コマンドでバージョン5.5の「プロジェクト」を作成  
 
 laradock環境を一旦停止し、env-exampleファイルを.envファイルとしてコピーし、MYSQLのバージョンを5.7に変更する  
