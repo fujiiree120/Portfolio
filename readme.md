@@ -28,10 +28,32 @@
 # 開発環境
   ・php7.2  
   ・mysql5.7  
-  ・Laravel(5.5)  
-  ・Bootstrap  
+  ・Laravel5.5  
+  ・VSCode
+  ・Docker,Laradockを利用した環境開発
 <br>
 
+# 開発構築方法
+　 Dockerのインストール後、git clone https://github.com/LaraDock/laradock.git　を実行し、
+ 作成されたLaradockディレクトリに移動　　
+
+docker-compose up -d workspaceでワークスペースを立ち上げる
+
+composer create-project laravel/laravel[プロジェクト名] --prefer-dist 5.5
+上記コマンドでバージョン5.5の「プロジェクト」を作成  
+
+env-exampleファイルを.envファイルとしてコピーし、MYSQLのバージョンを5.7に変更する
+ 
+# 使用技術
+  ・php  
+  ・mysql  
+  ・Laravel
+  ・Bootstrap  
+  ・Javascript
+  ・herokuを利用したサイトの公開  
+  ・Docker  
+
+ 
 # スクール受講内容
 総受講期間(2019/8/22 ~ 2019/12/25)
 
@@ -46,6 +68,6 @@ Git基礎
 VPSを用いた本番環境構築・公開  
 スクール最終課題：ECサイト開発実践開発  
 
-# 今回学習した習内容
+# 今回主に学習した習内容
 Laravel, Bootstrap  
 herokuを利用したwebサイトの公開
