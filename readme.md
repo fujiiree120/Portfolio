@@ -35,7 +35,7 @@
 <br>
 
 # 環境構築方法
-　 Dockerのインストール後、git clone https://github.com/LaraDock/laradock.git  
+　Dockerのインストール後、git clone https://github.com/LaraDock/laradock.git  
  上記コマンドを実行し、作成されたLaradockディレクトリに移動　　
 
 docker-compose up -d workspaceでワークスペースを立ち上げ動作確認
@@ -64,7 +64,7 @@ docker-compose up -d workspace nginx mysql phpmyadmin
   ・git bash  
 
 # 工夫した点
-　MVCモデルでの設計  
+MVCモデルでの設計  
   バリデーションが冗長になるため、フォームリクエストを利用しバリデーションの管理をまとめた    
   herokuでは画像生成ができないため、画像データをbase64エンコードしDBに直接格納することで画像表示ができるよう工夫した
 
