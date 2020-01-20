@@ -34,8 +34,8 @@
 <br>
 
 # 開発構築方法
-　 Dockerのインストール後、git clone https://github.com/LaraDock/laradock.git　を実行し、
- 作成されたLaradockディレクトリに移動　　
+　 Dockerのインストール後、git clone https://github.com/LaraDock/laradock.git　
+ 上記コマンドを実行し、作成されたLaradockディレクトリに移動　　
 
 docker-compose up -d workspaceでワークスペースを立ち上げる
 
@@ -52,6 +52,10 @@ env-exampleファイルを.envファイルとしてコピーし、MYSQLのバー
   ・Javascript
   ・herokuを利用したサイトの公開  
   ・Docker  
+
+# 工夫した点
+  フォームリクエストを利用し、バリデーションの管理をわかりやすくまとめた  
+  herokuでは画像生成ができないため、画像データをbase64エンコードしDBに直接格納することで画像表示ができるよう工夫した
 
  
 # スクール受講内容
