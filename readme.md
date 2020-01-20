@@ -4,7 +4,7 @@
  
  サイトURL:http://myapptatsuya.herokuapp.com/  
    ログイン用アカウント  
-    ・ログインID: test@aaa.com  
+    ・ログインメールアドレス: test@aaa.com  
     ・PASS:      123456789  
 
            
