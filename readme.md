@@ -2,8 +2,8 @@
  プログラミングスクール学習内容の復習と、個人的に学習したLaravel,Bootstrapの練習を目的として、  
  laravelを使用したECサイトを作成しました。  
  
- サイトURL:http://myapptatsuya.herokuapp.com/
-           ログインID: test@aaa.com
+ サイトURL:http://myapptatsuya.herokuapp.com/  
+           ログインID: test@aaa.com  
            PASS:      123456789
 # 開発背景
 ・Docker Toolboxを利用した環境構築  
