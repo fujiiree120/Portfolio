@@ -1,6 +1,7 @@
 # 学習背景、目的
  プログラミングスクール学習内容の復習と、個人的に学習したLaravel,Bootstrapの練習を目的として、  
  laravelを使用したECサイトを作成しました。  
+ <br>
  
  サイトURL:http://myapptatsuya.herokuapp.com/  
    ログイン用アカウント  
