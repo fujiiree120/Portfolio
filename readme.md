@@ -47,9 +47,10 @@ env-exampleファイルを.envファイルとしてコピーし、MYSQLのバー
 # 使用技術
   ・php  
   ・mysql  
-  ・Laravel
+  ・Laravel  
   ・Bootstrap  
-  ・Javascript  
+  ・Javascript
+  ・CSS  
   ・herokuを利用したサイトの公開  
   ・Docker  
 
