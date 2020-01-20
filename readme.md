@@ -5,11 +5,11 @@
            
 # サイトの説明
 　プロテインを販売するECサイト
- 
   サイトURL:http://myapptatsuya.herokuapp.com/  
    ログイン用アカウント  
     ・ログインメールアドレス: test@aaa.com  
     ・PASS:      123456789  
+   <br>
    
    ログイン後商品一覧から商品を並び替えができる  
    
