@@ -61,6 +61,7 @@ docker-compose up -d workspace nginx mysql phpmyadmin
   ・CSS  
   ・herokuを利用したサイトの公開  
   ・Docker  
+  ・Git  
   ・git bash  
 
 # 工夫した点
