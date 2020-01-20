@@ -35,7 +35,7 @@
 <br>
 
 # 開発構築方法
-　 Dockerのインストール後、git clone https://github.com/LaraDock/laradock.git　
+　 Dockerのインストール後、git clone https://github.com/LaraDock/laradock.git  
  上記コマンドを実行し、作成されたLaradockディレクトリに移動　　
 
 docker-compose up -d workspaceでワークスペースを立ち上げ動作確認
