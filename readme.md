@@ -3,7 +3,8 @@
  laravelを使用したECサイトを作成しました。  
  
  サイトURL:http://myapptatsuya.herokuapp.com/
-
+           ログインID: test@aaa.com
+           PASS:      123456789
 # 開発背景
 ・Docker Toolboxを利用した環境構築  
 ・Laradockを利用したLaravelインストール  
