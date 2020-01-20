@@ -3,7 +3,7 @@
  laravelを使用したECサイトを作成しました。  
  
  サイトURL:http://myapptatsuya.herokuapp.com/  
-   テスト用アカウント  
+   ログイン用アカウント  
            ログインID: test@aaa.com  
            PASS:      123456789
 # 開発背景
