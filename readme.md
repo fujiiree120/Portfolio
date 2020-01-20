@@ -3,13 +3,13 @@
  laravelを使用したECサイトを作成しました。  
  
  サイトURL:http://myapptatsuya.herokuapp.com/  
+   ログイン用アカウント  
+    ・ログインID: test@aaa.com  
+    ・PASS:      123456789  
 
            
 # サイトの説明
 　プロテインを販売するECサイト  
-  ログイン用アカウント  
-    ・ログインID: test@aaa.com  
-    ・PASS:      123456789  
    
    ログイン後商品一覧から商品を並び替えができる  
    
