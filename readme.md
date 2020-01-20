@@ -29,8 +29,8 @@
   ・php7.2  
   ・mysql5.7  
   ・Laravel5.5  
-  ・VSCode
-  ・Docker,Laradockを利用した環境開発
+  ・VSCode  
+  ・Docker,Laradockを利用した環境開発  
 <br>
 
 # 開発構築方法
@@ -49,7 +49,7 @@ env-exampleファイルを.envファイルとしてコピーし、MYSQLのバー
   ・mysql  
   ・Laravel
   ・Bootstrap  
-  ・Javascript
+  ・Javascript  
   ・herokuを利用したサイトの公開  
   ・Docker  
 
