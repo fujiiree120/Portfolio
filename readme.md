@@ -3,13 +3,26 @@
  laravelを使用したECサイトを作成しました。  
  
  サイトURL:http://myapptatsuya.herokuapp.com/  
-   ログイン用アカウント  
-           ログインID: test@aaa.com  
-           PASS:      123456789
-# 開発背景
-・Docker Toolboxを利用した環境構築  
-・Laradockを利用したLaravelインストール  
-・herokuを利用してのwebサイト公開
+
+           
+# サイトの説明
+　プロテインを販売するECサイト  
+  ・ログイン用アカウント  
+    ログインID: test@aaa.com  
+    PASS:      123456789  
+   
+   ログイン後商品一覧から商品を並び替えができる  
+   詳細一覧の「商品詳細を見る」から以下の情報を確認できる  
+   ・商品の詳細内容
+   ・商品の総合評価(☆1~5)の確認
+   ・ユーザーが投稿したレビューの確認
+   ・
+    
+# 開発環境
+  ・php7.2  
+  ・mysql5.7  
+  ・Laravel(5.5)  
+  ・Bootstrap  
 <br>
 
 # スクール受講内容
