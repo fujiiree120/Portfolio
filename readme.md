@@ -2,15 +2,14 @@
  プログラミングスクール学習内容の復習と、個人的に学習したLaravel,Bootstrapの練習を目的として、  
  laravelを使用したECサイトを作成しました。  
  <br>
+           
+# サイトの説明
+　プロテインを販売するECサイト
  
- サイトURL:http://myapptatsuya.herokuapp.com/  
+  サイトURL:http://myapptatsuya.herokuapp.com/  
    ログイン用アカウント  
     ・ログインメールアドレス: test@aaa.com  
     ・PASS:      123456789  
-
-           
-# サイトの説明
-　プロテインを販売するECサイト  
    
    ログイン後商品一覧から商品を並び替えができる  
    
