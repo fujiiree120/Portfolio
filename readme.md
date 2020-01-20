@@ -49,7 +49,7 @@ env-exampleファイルを.envファイルとしてコピーし、MYSQLのバー
   ・mysql  
   ・Laravel  
   ・Bootstrap  
-  ・Javascript
+  ・Javascript  
   ・CSS  
   ・herokuを利用したサイトの公開  
   ・Docker  
