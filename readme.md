@@ -8,7 +8,7 @@
   サイトURL:http://myapptatsuya.herokuapp.com/  
    ログイン用アカウント  
     ・ログイン用メールアドレス: test@aaa.com  
-    ・PASS:      123456789  
+    ・パスワード:      123456789  
    <br>
    
    ログイン後商品一覧から商品を並び替えができる  
