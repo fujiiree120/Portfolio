@@ -32,8 +32,7 @@
   ・Laravel5.5(Laradockを利用したインストール)    
   ・VSCode  
   ・git bash    
-  ・Dockerを利用した環境開発  
-  ・Linux  
+  ・Dockerを利用した仮想LAMP環境の構築  
 <br>
 
 # 環境構築方法
@@ -80,7 +79,7 @@ MySQL5.5
 
 ## 実践開発演習(2019/10/21 ~ 2019/12/25)
 開発環境構築(Docker)  
-LAMP環境での開発  
+LAMP環境の構築    
 Linux   
 Git  
 セキュリティ対策(SQLインジェクション, XSS, CSRF)  
