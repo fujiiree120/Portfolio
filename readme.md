@@ -27,6 +27,7 @@
    
    
 # 開発環境
+　・LAMP環境  
   ・php7.2  
   ・mysql5.7  
   ・Laravel5.5(Laradockを利用したインストール)    
