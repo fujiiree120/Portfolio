@@ -39,7 +39,7 @@
                 <li class="nav-item">
                     <form method="get" action="{{action('ItemController@search_items') }}" class="text-center">
                         {{ csrf_field() }}
-                        <input  type="text" name="keyword" class="text-field">
+                        <input  type="text" name="keyword" class="text-field" placeholder="キーワードで検索">
                         <input type="submit" value="検索" class="btn btn-sm btn-info">
                     </form>
                 </li>
