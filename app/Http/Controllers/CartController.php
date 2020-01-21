@@ -72,6 +72,9 @@ class CartController extends Controller
         $carts = \Auth::user()->carts;
         DB::beginTransaction();
         try {
+            if($carts->isEmpty()){
+                return redirect('/carts')->with('flash_error', 'カートに商品がありません');
+            }
             $order_log_id = $this->add_order_log($request->total_price);
             $this->add_order_detail($carts, $order_log_id);
 
