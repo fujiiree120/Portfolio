@@ -27,8 +27,8 @@
    
    
 # 開発環境
-  ・php 
-  ・mysql 
+  ・php  
+  ・mysql  
   ・Laravel(Laradockを利用したインストール)    
   ・VSCode  
   ・git bash    
