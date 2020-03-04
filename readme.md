@@ -27,9 +27,9 @@
    
    
 # 開発環境
-  ・php7.2  
-  ・mysql5.7  
-  ・Laravel5.5(Laradockを利用したインストール)    
+  ・php 
+  ・mysql 
+  ・Laravel(Laradockを利用したインストール)    
   ・VSCode  
   ・git bash    
   ・Dockerを利用した仮想LAMP環境の構築  
